@@ -1,5 +1,6 @@
-# Copy-number-analysis is based on single embryo sequencing, which is Synchronous for development biology research. 
+# Copy-number-analysis
 
+Copy-number-analysis is based on single embryo sequencing, which is Synchronous for development biology research. 
 
 Here, we show the method about copy number analysis during S phase while DNA replicated. 
 
