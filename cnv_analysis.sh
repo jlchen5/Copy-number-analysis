@@ -20,20 +20,20 @@ cat sample.txt|while read line ;do bowtie2 -x /home/reference/Dmelanogaster/UCSC
 
 echo "          Convert sam to bam "
 # sam to bam conversion  
-samtools view -bSq 30 $line.sam > $line.bam
+cat sample.txt|while read line ;do samtools view -bSq 30 $line.sam > $line.bam ;done
 
 echo "          Sort the bam file "
-samtools sort $line.bam  $line.sorted.bam
-81)
+cat sample.txt|while read line ;do samtools sort $line.bam  $line.sorted.bam;done
+
 echo "          Remove reads likely to be PCR duplicates "
-samtools rmdup -s $line.sorted.bam  $line.rmdup.bam
-82)
+cat sample.txt|while read line ;do samtools rmdup -s $line.sorted.bam  $line.rmdup.bam;done
+
 echo "          Create a bam file index "
-samtools index $line.rmdup.bam
+cat sample.txt|while read line ;do samtools index $line.rmdup.bam;done
 
 echo "          bam to bed conversion "
 # bam to bed conversion  
-bamToBed -i $line.rmdup.bam | cut -f 1,2,3,4,5,6 | sort -T . -k1,1 -k2,2n -S 5G > $line.bed
+cat sample.txt|while read line ;do bamToBed -i $line.rmdup.bam | cut -f 1,2,3,4,5,6 | sort -T . -k1,1 -k2,2n -S 5G > $line.bed;done
 
 echo "          bed line number calculate "
 # bed line number calculate  
@@ -41,7 +41,7 @@ x=`wc -l $line.bed | cut -d' ' -f 1`
 
 echo "          generate coverage on genomic windows"
 # generate coverage on genomic windows  
-bedtools intersect -sorted -c -b $line.bed -a /home/chenjiale/project/cnv/dm6_windows_50k.bed |awk -vx=$x '{print $1,$2,$3,$4*1e+06/x}' OFS='\t' > $line.bg
+cat sample.txt|while read line ;do bedtools intersect -sorted -c -b $line.bed -a /home/chenjiale/project/cnv/dm6_windows_50k.bed |awk -vx=$x '{print $1,$2,$3,$4*1e+06/x}' OFS='\t' > $line.bg;done
 
 
 echo End time: `date`
