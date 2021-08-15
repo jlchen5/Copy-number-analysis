@@ -9,5 +9,9 @@ Software required: bowtie2 v2.3.5.1; samtools v1.10; bedtools v2.26.0.
 
 
 
+# If you want konw more, you can explore:
+https://www.zhihu.com/people/xiang-ya-chen-wei-ting
+
+
 
 
