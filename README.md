@@ -4,14 +4,13 @@ Copy-number-analysis is based on single embryo sequencing, which is Synchronous 
 
 Here, we show the method about copy number analysis during S phase while DNA replicated. 
 
-Software required: bowtie2 v2.3.5.1; samtools v1.10; bedtools v2.26.0.
+Software required: bowtie2 `v2.3.5.1`; samtools `v1.10`; bedtools `v2.26.0`.
 
 
 
 
 # If you want konw more, you can explore:
-https://www.zhihu.com/people/xiang-ya-chen-wei-ting
-
+https://www.zhihu.com/people/jl_chen
 
 
 
